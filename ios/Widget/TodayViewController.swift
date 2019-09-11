@@ -16,13 +16,14 @@ struct Shared:Decodable {
 class TodayViewController: UIViewController, NCWidgetProviding {
   @IBOutlet weak var textLabel: UILabel!
   
+  //CHANGE THE GROUP NAME
   let userDefaults = UserDefaults(suiteName: "group.com.createwidget.pimenta")
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view from its nib.
     
+	//ADD THIS
     do{
       let shared = userDefaults?.string(forKey: "data")
       if(shared != nil){
