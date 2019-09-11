@@ -22,18 +22,11 @@ RCT_EXPORT_METHOD(set:(NSString *)data
     NSUserDefaults *shared = [[NSUserDefaults alloc]initWithSuiteName:@"group.com.createwidget.pimenta"];
     [shared setObject:data forKey:@"data"];
     [shared synchronize];
-    NSLog(@"%@",data);
-    NSArray *keys = [[shared dictionaryRepresentation] allKeys];
-    
-    for(NSString* key in keys){
-      // your code here
-      NSLog(@"value: %@ forKey: %@",[shared valueForKey:key],key);
-    }
     resolve(@"true");
   }@catch(NSException *exception){
     reject(@"get_error",exception.reason, nil);
   }
-  
+
 }
 
 @end
