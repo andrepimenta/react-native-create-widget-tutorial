@@ -21,6 +21,7 @@
 		659E145623294C030044CC02 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659E145523294C030044CC02 /* TodayViewController.swift */; };
 		659E145923294C030044CC02 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 659E145723294C030044CC02 /* MainInterface.storyboard */; };
 		659E145D23294C030044CC02 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 659E145123294C020044CC02 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		659E1464232954650044CC02 /* SharedStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 659E1463232954650044CC02 /* SharedStorage.m */; };
 		6E52295A9543BA7166895767 /* libPods-ReactNativeCreateWidgetTutorial-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDA86E8DE108B80D065950E /* libPods-ReactNativeCreateWidgetTutorial-tvOSTests.a */; };
 		A74DB06BC240847157580B1D /* libPods-ReactNativeCreateWidgetTutorialTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA351920E4042BDB5282AF75 /* libPods-ReactNativeCreateWidgetTutorialTests.a */; };
 		F2D80D66C0408D247942F943 /* libPods-ReactNativeCreateWidgetTutorial-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E953CF5D963B48F907D1C12A /* libPods-ReactNativeCreateWidgetTutorial-tvOS.a */; };
@@ -86,6 +87,9 @@
 		659E145523294C030044CC02 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		659E145823294C030044CC02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		659E145A23294C030044CC02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		659E1462232954650044CC02 /* SharedStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedStorage.h; sourceTree = "<group>"; };
+		659E1463232954650044CC02 /* SharedStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedStorage.m; sourceTree = "<group>"; };
+		659E146523295F390044CC02 /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widget.entitlements; sourceTree = "<group>"; };
 		936F55ED41008E34AF8FAD84 /* libPods-ReactNativeCreateWidgetTutorial.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeCreateWidgetTutorial.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AB7B69E8B940AD1ABBEDE0D /* Pods-ReactNativeCreateWidgetTutorial-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCreateWidgetTutorial-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeCreateWidgetTutorial-tvOS/Pods-ReactNativeCreateWidgetTutorial-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C8D77908B5D3631A19952581 /* Pods-ReactNativeCreateWidgetTutorialTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCreateWidgetTutorialTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeCreateWidgetTutorialTests/Pods-ReactNativeCreateWidgetTutorialTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 		659E145423294C030044CC02 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
+				659E146523295F390044CC02 /* Widget.entitlements */,
 				659E145523294C030044CC02 /* TodayViewController.swift */,
 				659E145723294C030044CC02 /* MainInterface.storyboard */,
 				659E145A23294C030044CC02 /* Info.plist */,
@@ -223,6 +228,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				659E1462232954650044CC02 /* SharedStorage.h */,
+				659E1463232954650044CC02 /* SharedStorage.m */,
 				13B07FAE1A68108700A75B9A /* ReactNativeCreateWidgetTutorial */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* ReactNativeCreateWidgetTutorialTests */,
@@ -378,6 +385,11 @@
 						CreatedOnToolsVersion = 10.1;
 						DevelopmentTeam = PGA539E5WX;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -617,6 +629,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				659E1464232954650044CC02 /* SharedStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,6 +906,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -922,6 +936,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
