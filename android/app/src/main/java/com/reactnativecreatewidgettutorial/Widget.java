@@ -3,8 +3,8 @@ package com.reactnativecreatewidgettutorial;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.widget.RemoteViews;
+import android.content.SharedPreferences;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,7 +16,6 @@ public class Widget extends AppWidgetProvider {
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
-        CharSequence widgetText = context.getString(R.string.appwidget_text);
 		try {
 			SharedPreferences sharedPref = context.getSharedPreferences("DATA", Context.MODE_PRIVATE);
 			String appString = sharedPref.getString("appData", "{\"text\":'no data'}");
