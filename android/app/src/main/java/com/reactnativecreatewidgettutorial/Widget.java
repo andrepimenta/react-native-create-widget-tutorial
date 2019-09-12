@@ -3,8 +3,11 @@ package com.reactnativecreatewidgettutorial;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.widget.RemoteViews;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 /**
  * Implementation of App Widget functionality.
  */
@@ -14,12 +17,19 @@ public class Widget extends AppWidgetProvider {
                                 int appWidgetId) {
 
         CharSequence widgetText = context.getString(R.string.appwidget_text);
-        // Construct the RemoteViews object
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
-        views.setTextViewText(R.id.appwidget_text, widgetText);
+		try {
+			SharedPreferences sharedPref = context.getSharedPreferences("DATA", Context.MODE_PRIVATE);
+			String appString = sharedPref.getString("appData", "{\"text\":'no data'}");
+			JSONObject appData = new JSONObject(appString);
 
-        // Instruct the widget manager to update the widget
-        appWidgetManager.updateAppWidget(appWidgetId, views);
+			// Construct the RemoteViews object
+			RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
+			views.setTextViewText(R.id.appwidget_text, appData.getString("text"));
+			 // Instruct the widget manager to update the widget
+			 appWidgetManager.updateAppWidget(appWidgetId, views);
+		}catch (JSONException e) {
+			e.printStackTrace();
+		}
     }
 
     @Override

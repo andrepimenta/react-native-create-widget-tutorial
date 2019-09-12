@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">ReactNativeCreateWidgetTutorial</string>
-    <string name="appwidget_text">EXAMPLE</string>
+    <string name="appwidget_text">HELLO</string>
     <string name="add_widget">Add widget</string>
 </resources>
